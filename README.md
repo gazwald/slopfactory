@@ -45,4 +45,4 @@ docs:
 Play around with the [model](https://ollama.com/library) used as the default
 one that I've picked was chosen due to it's size above all else.
 
-I've generally had decent success with `gemma3:4b`.
+I've generally had decent success with `qwen3:8b`.
