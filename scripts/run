@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -eou pipefail
+
+cd "$(git rev-parse --show-toplevel)"
+
+if test -f scripts/build-env; then
+  source scripts/build-env
+fi
+
+docker compose up --build \
+                  --attach app

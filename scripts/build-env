@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -eou pipefail
+
+cd "$(git rev-parse --show-toplevel)"
+
+export PYTHON_VERSION=3.13
+export OLLAMA_VERSION=0.9.2
+export REGISTRY_BASE=registry.poppet.io
+export BASE_IMAGE=${REGISTRY_BASE}/dockerhub/library/python:${PYTHON_VERSION}-slim-bookworm
+export OLLAMA_IMAGE=${REGISTRY_BASE}/dockerhub/ollama/ollama:${OLLAMA_VERSION}

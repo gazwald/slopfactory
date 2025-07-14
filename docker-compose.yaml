@@ -1,0 +1,28 @@
+services:
+  app:
+    build:
+      context: .
+      args:
+        BASE_IMAGE: ${BASE_IMAGE:-docker.io/library/python:${PYTHON_VERSION:-3.13}-slim-bookworm}
+    volumes:
+      - ./inputs:/inputs
+      - ./outputs:/outputs
+    environment:
+      OLLAMA_MODEL: gemma3:1b
+      OLLAMA_API_HOST: ollama
+    depends_on:
+      - ollama
+
+  ollama:
+    container_name: ollama
+    image: ${OLLAMA_IMAGE:-docker.io/ollama/ollama:${OLLAMA_VERSION:-0.9.2}}
+    ports:
+      - 11434:11434
+    volumes:
+      - ./models:/root/.ollama
+    restart: unless-stopped
+    environment:
+      OLLAMA_KEEP_ALIVE: 24h
+      OLLAMA_HOST: 0.0.0.0
+    post_start:
+      - command: ollama pull gemma3:1b
