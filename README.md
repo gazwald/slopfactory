@@ -27,7 +27,9 @@ switch to one that does, or rip out the code that creates them.
 
 1. Run it:
 
-    ```console ./scripts/run ```
+    ```console
+    ./scripts/run
+    ```
 
 1. Watch as your CPU churns merrily away
 
