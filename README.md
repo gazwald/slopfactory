@@ -27,9 +27,26 @@ switch to one that does, or rip out the code that creates them.
 
 1. Run it:
 
-```console ./scripts/run ```
+    ```console ./scripts/run ```
 
 1. Watch as your CPU churns merrily away
+
+1. Check `./outputs/`:
+
+    ```console
+    $ jq < outputs/1752490190069971865_resume.json
+    {
+      "personal": {
+        "contact": null,
+        "location": "Victoria, Australia",
+        "name": "Gary Brandon",
+        "description": "Just a human person doing normal human person things",
+        "pronouns": null,
+        "title": null
+      },
+      "history": [
+    ...
+    ```
 
 ## Performance
 
